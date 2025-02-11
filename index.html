@@ -3,56 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch Data from URL</title>
+    <title>Fullscreen Embed</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        /* Remove default margin and padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
         }
-        #data-container {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
+
+        /* Make the iframe cover the entire screen */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove iframe border */
         }
     </style>
 </head>
 <body>
-    <h1>Fetch Data from URL</h1>
-    <button id="fetch-button">Fetch Data</button>
-    <div id="data-container">
-        <p>Data will appear here...</p>
-    </div>
-
-    <script>
-        // Function to fetch data from the URL
-        async function fetchData() {
-            const url = "https://education76.github.io/g77/1v1-lol-3/";
-            const dataContainer = document.getElementById("data-container");
-
-            try {
-                // Fetch data from the URL
-                const response = await fetch(url);
-
-                // Check if the response is OK (status code 200)
-                if (response.ok) {
-                    // Get the text content of the response
-                    const data = await response.text();
-
-                    // Display the data in the container
-                    dataContainer.innerHTML = `<pre>${data}</pre>`;
-                } else {
-                    // Display an error message if the response is not OK
-                    dataContainer.innerHTML = `<p>Failed to fetch data. Status: ${response.status}</p>`;
-                }
-            } catch (error) {
-                // Handle any errors that occur during the fetch
-                dataContainer.innerHTML = `<p>An error occurred: ${error.message}</p>`;
-            }
-        }
-
-        // Add an event listener to the button
-        document.getElementById("fetch-button").addEventListener("click", fetchData);
-    </script>
+    <!-- Embed the URL in an iframe -->
+    <iframe src="https://education76.github.io/g77/1v1-lol-3/" title="Embedded Content"></iframe>
 </body>
 </html>
